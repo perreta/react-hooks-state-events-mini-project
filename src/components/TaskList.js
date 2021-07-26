@@ -1,11 +1,18 @@
 import React from "react";
+import Task from "./Task"
 
-function TaskList() {
+function TaskList({ tasks, onTaskDelete }) {
+  
+  const newTasks = tasks.map(({text, category}) => {
+    return (
+      <Task key={text} text={text} category={category} onTaskDelete={onTaskDelete} />
+    )
+  })
+
   return (
     <div className="tasks">
-      {/* display a list of tasks using Task component */}
+      {newTasks}
     </div>
   );
 }
-
 export default TaskList;
